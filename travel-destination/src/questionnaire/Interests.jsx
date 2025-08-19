@@ -27,11 +27,11 @@ export default function Interests()
    };
 
   const toggle = (id) => {
-    setSelected((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-    setInterest((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
 
-//     inputRef.current.focus();
-    console.log(inputRef.current.value);
+      setSelected((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
+      setInterest((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
+
+      console.log(interest)
   };
 
 return (
@@ -45,7 +45,7 @@ return (
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
         {options.map((opt) => (
-          <button key={opt.id} onClick={() => toggle(opt.id)} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selected.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
+          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selected.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
              <img src={opt.image} alt={opt.title} className="h-42 w-full rounded-lg object-cover"/>
 
 
@@ -55,7 +55,7 @@ return (
                     <p className="text-lg font-semibold">{opt.title}</p>
                   </div>
                   <p className="mt-1 line-clamp-2 text-sm text-white/90">{opt.subtitle}</p>
-                 <input ref={inputRef} type="checkbox" className="appearance-none absolute bottom-4 right-4 h-5 w-5 border border-gray-300 rounded-full checked:bg-gray-400 cursor-pointer"/>
+                 <input ref={inputRef} type="checkbox"onChange={() => toggle(opt.id)} className="appearance-none absolute bottom-4 right-4 h-5 w-5 border border-gray-300 rounded-full checked:bg-gray-400 cursor-pointer"/>
             </div>
 
 
