@@ -43,7 +43,7 @@ return (
       <h2 className="mt-2 text-4xl font-bold tracking-tight text-white-600 text-center"> Choose your travel interests </h2>
 
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-20">
         {options.map((opt) => (
           <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selected.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
              <img src={opt.image} alt={opt.title} className="h-42 w-full rounded-lg object-cover"/>

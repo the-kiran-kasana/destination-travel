@@ -1,16 +1,29 @@
 import React, { useState ,useRef} from "react";
-import {  Check, Mountain, Umbrella, Landmark, PartyPopper, UtensilsCrossed, Trees } from "lucide-react";
+import { Binoculars, HandPlatter, TentTree } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-// binoculars , hand-platter, tent-tree
 
 export default function Activities()
 {
 
    const options = [
-        { id: "sightseeing",  title: "Sightseeing", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks and attractions",icon: binoculars , },
-        { id: "dining", title: "Dining", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: "Taste cuisines and discover food experiences",icon: hand-platter },
-        { id: "outdoor", title: "Outdoor", image: "https://i.pinimg.com/736x/e1/9f/48/e19f48fa15ddc68268e1073896ff95a0.jpg" ,subtitle: "Enjoy nature with hiking,camping",icon: tent-tree},
+        { id: "sightseeing",  title: "Sightseeing", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
+        { id: "dining", title: "Dining", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: " Discover food taste experiences",icon: HandPlatter },
+        { id: "outdoor", title: "Outdoor", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
    ];
+
+   const travelStyle = [
+           { id: "solo",  title: "Solo", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
+           { id: "family", title: "Family", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: " Discover food taste experiences",icon: HandPlatter },
+           { id: "luxury", title: "Luxury", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
+   ];
+
+//    const options = [
+//            { id: "sightseeing",  title: "Sightseeing", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
+//            { id: "dining", title: "Dining", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: " Discover food taste experiences",icon: HandPlatter },
+//            { id: "outdoor", title: "Outdoor", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
+//    ];
+
+
 
    const navigate = useNavigate();
    const [selected, setSelected] = useState([]);
@@ -36,10 +49,10 @@ return (
 
       <h3 className="text-xl font-bold tracking-tight text-white-600 text-center"> Destination2Travel </h3>
       <p className="mt-10 text-sm text-white-600 text-center gap-6">  We'll personalize Destination2Travel based on your goals </p>
-      <h2 className="mt-2 text-4xl font-bold tracking-tight text-white-600 text-center"> Choose your travel interests </h2>
+      <h2 className="mt-2 text-4xl font-bold tracking-tight text-white-600 text-center gap-0">Find  Your  Desired  Activities </h2>
 
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-20">
         {options.map((opt) => (
           <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selected.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
              <img src={opt.image} alt={opt.title} className="h-42 w-full rounded-lg object-cover"/>
