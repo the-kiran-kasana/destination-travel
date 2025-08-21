@@ -2,10 +2,18 @@ import React, { useState ,useRef , useContext} from "react";
 import { Binoculars, HandPlatter, TentTree ,Tent,HousePlus} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { useSharedState } from "./StateContext";
 
 
 export default function Activities()
 {
+
+
+   const navigate = useNavigate();
+   const inputRef = useRef();
+   const Location = useLocation();
+   const {selectedActivities, setSelectedActivities} = useSharedState();
+
 
    const options = [
         { id: "sightseeing",  title: "Sightseeing", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
@@ -13,34 +21,20 @@ export default function Activities()
         { id: "outdoor", title: "Outdoor", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
    ];
 
-   const travelStyle = [
-           { id: "solo",   title: "Solo",    image:  "https://i.pinimg.com/1200x/37/05/73/3705737db12bde76985204ec6fa83ee1.jpg",subtitle: "Explore famous Solo",icon: Tent , },
-           { id: "family", title: "Family",  image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
-           { id: "luxury", title: "Luxury",  image: "https://i.pinimg.com/1200x/ec/a7/c4/eca7c4931e71dd9edd89876b36e10397.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
-   ];
-
-   const navigate = useNavigate();
-   const [selected, setSelected] = useState([]);
-   const [interest , setInterest] = useState([]);
-   const inputRef = useRef();
-   const Location = useLocation();
-
-
 
 
 
 
    const handleContinue = () => {
-        alert(`Selected interests: ${selected.join(", ") || "(none)"}`);
+        alert(`Selected interests: ${selectedActivities.join(", ") || "(none)"}`);
          navigate("/TravelStyle");
    };
 
   const toggle = (id) => {
 
-      setSelected((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-      setInterest((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
+      setSelectedActivities((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
 
-      console.log(interest)
+      console.log(selectedActivities)
   };
 
 return (
@@ -54,7 +48,7 @@ return (
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-20">
         {options.map((opt) => (
-          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selected.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
+          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selectedActivities.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
              <img src={opt.image} alt={opt.title} className="h-42 w-full rounded-lg object-cover"/>
 
 

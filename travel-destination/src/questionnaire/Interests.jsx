@@ -1,9 +1,10 @@
 import React, { useState ,useRef ,useContext,createContext} from "react";
 import { Check, Mountain, Umbrella, Landmark, PartyPopper, UtensilsCrossed, Trees } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useSharedState } from "./StateContext";
 
 
-const StateContext = createContext();
+
 export default function Interests()
 {
 
@@ -14,26 +15,20 @@ export default function Interests()
    ];
 
    const navigate = useNavigate();
-   const [selected, setSelected] = useState([]);
-   const [interest , setInterest] = useState([]);
    const inputRef = useRef();
+   const {selectedInterests , setSelectedInterests} = useSharedState();
+
 
 
    const handleContinue = () => {
-        alert(`Selected interests: ${selected.join(", ") || "(none)"}`);
+        alert(`Selected interests: ${selectedInterests.join(", ") || "(none)"}`);
         navigate("/Activities");
-        <StateContext.Provider value={{selected ,setSelected}}>
-         <Activities />
-         <TravelStyle />
-        </StateContext.Provider>
    };
 
   const toggle = (id) => {
 
-      setSelected((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-      setInterest((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-
-      console.log(interest)
+      setSelectedInterests((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
+      console.log(selectedInterests);
   };
 
 return (
@@ -47,7 +42,7 @@ return (
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-20">
         {options.map((opt) => (
-          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selected.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
+          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selectedInterests.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
              <img src={opt.image} alt={opt.title} className="h-42 w-full rounded-lg object-cover"/>
 
 

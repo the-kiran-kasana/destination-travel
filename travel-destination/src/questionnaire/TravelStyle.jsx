@@ -1,6 +1,8 @@
 import React, { useState ,useRef ,useContext} from "react";
 import { Binoculars, HandPlatter, TentTree ,Tent,HousePlus} from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import {useSharedState} from "./StateContext"
+import { useLocation } from "react-router-dom";
 
 export default function TravelStyle()
 {
@@ -12,22 +14,23 @@ export default function TravelStyle()
    ];
 
    const navigate = useNavigate();
+   const Location = useLocation();
    const [selected, setSelected] = useState([]);
    const [interest , setInterest] = useState([]);
    const inputRef = useRef();
+   const {selectedTravelStyles , setSelectedTravelStyles} = useSharedState();
 
 
 
    const handleContinue = () => {
-        alert(`Selected interests: ${selected.join(", ") || "(none)"}`);
+        alert(`Selected interests: ${selectedTravelStyles.join(", ") || "(none)"}`);
+        navigate("/InterestedDestination");
    };
 
   const toggle = (id) => {
 
-      setSelected((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-      setInterest((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-
-      console.log(interest)
+      setSelectedTravelStyles((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
+      console.log(selectedTravelStyles)
   };
 
 return (
@@ -41,7 +44,7 @@ return (
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-20">
         {options.map((opt) => (
-          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selected.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
+          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selectedTravelStyles.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
              <img src={opt.image} alt={opt.title} className="h-42 w-full rounded-lg object-cover"/>
 
 

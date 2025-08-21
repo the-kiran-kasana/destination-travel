@@ -1,20 +1,20 @@
 
-import { Mountain, Umbrella, Landmark } from "lucide-react";
+import { Mountain, Umbrella, Landmark,Binoculars ,HandPlatter,TentTree,Tent,HousePlus} from "lucide-react";
 
 
- export const interestsData = [
+ export const InterestsData = [
         { id: "1",  title: "Adventure", image:"https://i.pinimg.com/1200x/d4/f3/d6/d4f3d6a6573761b8553414fe4d6f38a8.jpg" , subtitle: "Hiking, rafting, thrill rides",icon: Mountain },
-        { id: "16", title: "Adventure",  image: "https://i.pinimg.com/1200x/0c/ff/39/0cff398544f51111370511b36bf117eb.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
-        { id: "18", title: "Adventure",  image: "https://i.pinimg.com/736x/aa/9b/28/aa9b2858d258261741e3d55284f550c6.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
-        { id: "19", title: "Adventure",  image: "https://i.pinimg.com/1200x/91/1f/4d/911f4d44cff2a44ffe3c206589fa738f.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
-        { id: "20", title: "Adventure",  image: "https://i.pinimg.com/736x/58/44/2d/58442d48aff42c89f0634932459da311.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
+        { id: "16", title: "Adventure",  image: "https://i.pinimg.com/1200x/0c/ff/39/0cff398544f51111370511b36bf117eb.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: Mountain},
+        { id: "18", title: "Adventure",  image: "https://i.pinimg.com/736x/aa/9b/28/aa9b2858d258261741e3d55284f550c6.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: Mountain},
+        { id: "19", title: "Adventure",  image: "https://i.pinimg.com/1200x/91/1f/4d/911f4d44cff2a44ffe3c206589fa738f.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: Mountain},
+        { id: "20", title: "Adventure",  image: "https://i.pinimg.com/736x/58/44/2d/58442d48aff42c89f0634932459da311.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: Mountain},
 
 
-        { id: "2", title: "Relaxation", image: "https://i.pinimg.com/736x/bb/91/fd/bb91fdd139fdb20e73a70f8f7d2002d1.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
-        { id: "2", title: "Relaxation", image: "https://i.pinimg.com/736x/4d/59/57/4d595742414c568cdd63bce3619d8415.jpg.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
-        { id: "2", title: "Relaxation", image: "https://i.pinimg.com/736x/7d/4b/f9/7d4bf9a54fe4caf154e0af70c48128d0.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
-        { id: "2", title: "Relaxation", image: "https://i.pinimg.com/736x/7f/22/4f/7f224f8d1759a5819c1636295be3a923.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
-        { id: "2", title: "Relaxation", image: "https://i.pinimg.com/736x/ec/8c/a3/ec8ca3475a19fc7553ebfaed0395c03e.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
+        { id: "71", title: "Relaxation", image: "https://i.pinimg.com/736x/bb/91/fd/bb91fdd139fdb20e73a70f8f7d2002d1.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
+        { id: "72", title: "Relaxation", image: "https://i.pinimg.com/736x/4d/59/57/4d595742414c568cdd63bce3619d8415.jpg.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
+        { id: "73", title: "Relaxation", image: "https://i.pinimg.com/736x/7d/4b/f9/7d4bf9a54fe4caf154e0af70c48128d0.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
+        { id: "74", title: "Relaxation", image: "https://i.pinimg.com/736x/7f/22/4f/7f224f8d1759a5819c1636295be3a923.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
+        { id: "75", title: "Relaxation", image: "https://i.pinimg.com/736x/ec/8c/a3/ec8ca3475a19fc7553ebfaed0395c03e.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
 
 
         { id: "3", title: "Culture", image: "https://i.pinimg.com/736x/fd/aa/75/fdaa75f0854b00753f0bd8a722676836.jpg",subtitle: "Museums, festivals",icon: Landmark, },
@@ -58,10 +58,10 @@ import { Mountain, Umbrella, Landmark } from "lucide-react";
 
 
 
-        { id: "8", title: "Family",  image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
-        { id: "8", title: "Family",  image:  "https://i.pinimg.com/1200x/b3/29/85/b32985f2da7134730d17b86c78c06da5.jpg",subtitle: " Discover family destination",icon: HousePlus },
-        { id: "8", title: "Family",  image:  "https://i.pinimg.com/736x/7c/4b/04/7c4b04bfa26176fa2ee0828df4d9f9a3.jpg",subtitle: " Discover family destination",icon: HousePlus },
-        { id: "8", title: "Family",  image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
+        { id: "81", title: "Family",  image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
+        { id: "82", title: "Family",  image:  "https://i.pinimg.com/1200x/b3/29/85/b32985f2da7134730d17b86c78c06da5.jpg",subtitle: " Discover family destination",icon: HousePlus },
+        { id: "83", title: "Family",  image:  "https://i.pinimg.com/736x/7c/4b/04/7c4b04bfa26176fa2ee0828df4d9f9a3.jpg",subtitle: " Discover family destination",icon: HousePlus },
+        { id: "84", title: "Family",  image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
 
 
 
