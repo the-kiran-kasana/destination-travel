@@ -1,20 +1,20 @@
-import { useState } from 'react'
 import './App.css'
-import Home from "./questionnaire/Home"
 import Interests from "./questionnaire/Interests"
 import Activities from "./questionnaire/Activities"
-// import InterestCard from "./questionnaire/InterestCard"
-import {Route , Routes} from "react-router-dom"
+import TravelStyle from "./questionnaire/TravelStyle"
+import { Route, Routes } from "react-router-dom"
+import { StateProvider } from "./questionnaire/StateContext"
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <Routes>
-      <Route path="/" element={<Interests/>} />
-      <Route path="/Activities" element={<Activities/>} />
-    </Routes>
+    <StateProvider>
+      <Routes>
+        <Route path="/" element={<Interests />} />
+        <Route path="/Activities" element={<Activities />} />
+        <Route path="/TravelStyle" element={<TravelStyle />} />
+      </Routes>
+    </StateProvider>
   );
 }
 
-export default App
+export default App;

@@ -1,6 +1,8 @@
-import React, { useState ,useRef} from "react";
-import { Binoculars, HandPlatter, TentTree } from "lucide-react";
+import React, { useState ,useRef , useContext} from "react";
+import { Binoculars, HandPlatter, TentTree ,Tent,HousePlus} from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 
 export default function Activities()
 {
@@ -12,27 +14,25 @@ export default function Activities()
    ];
 
    const travelStyle = [
-           { id: "solo",  title: "Solo", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
-           { id: "family", title: "Family", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: " Discover food taste experiences",icon: HandPlatter },
-           { id: "luxury", title: "Luxury", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
+           { id: "solo",   title: "Solo",    image:  "https://i.pinimg.com/1200x/37/05/73/3705737db12bde76985204ec6fa83ee1.jpg",subtitle: "Explore famous Solo",icon: Tent , },
+           { id: "family", title: "Family",  image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
+           { id: "luxury", title: "Luxury",  image: "https://i.pinimg.com/1200x/ec/a7/c4/eca7c4931e71dd9edd89876b36e10397.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
    ];
-
-//    const options = [
-//            { id: "sightseeing",  title: "Sightseeing", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
-//            { id: "dining", title: "Dining", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: " Discover food taste experiences",icon: HandPlatter },
-//            { id: "outdoor", title: "Outdoor", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
-//    ];
-
-
 
    const navigate = useNavigate();
    const [selected, setSelected] = useState([]);
    const [interest , setInterest] = useState([]);
    const inputRef = useRef();
+   const Location = useLocation();
+
+
+
+
 
 
    const handleContinue = () => {
         alert(`Selected interests: ${selected.join(", ") || "(none)"}`);
+         navigate("/TravelStyle");
    };
 
   const toggle = (id) => {

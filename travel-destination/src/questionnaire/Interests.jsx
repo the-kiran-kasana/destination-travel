@@ -1,18 +1,16 @@
-import React, { useState ,useRef} from "react";
+import React, { useState ,useRef ,useContext,createContext} from "react";
 import { Check, Mountain, Umbrella, Landmark, PartyPopper, UtensilsCrossed, Trees } from "lucide-react";
-// import Activities from "./questionnaire/Activities"
 import { useNavigate } from "react-router-dom";
 
 
+const StateContext = createContext();
 export default function Interests()
 {
 
    const options = [
-        { id: "nightlife",  title: "Nightlife", image:  "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?q=80&w=1400&auto=format&fit=crop",subtitle: "Clubs, bars, live music",icon: PartyPopper, },
         { id: "adventure", title: "Adventure", image:  "https://i.pinimg.com/1200x/d4/f3/d6/d4f3d6a6573761b8553414fe4d6f38a8.jpg",subtitle: "Hiking, rafting, thrill rides",icon: Mountain },
         { id: "relaxation", title: "Relaxation", image: "https://i.pinimg.com/736x/bb/91/fd/bb91fdd139fdb20e73a70f8f7d2002d1.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
         { id: "culture", title: "Culture", image: "https://i.pinimg.com/736x/fd/aa/75/fdaa75f0854b00753f0bd8a722676836.jpg",subtitle: "Museums, festivals",icon: Landmark, },
-        { id: "food",title: "Food & Dining", subtitle: "Street food to fine dining", image: "https://images.unsplash.com/photo-1547573854-74d2a71d0826?q=80&w=1400&auto=format&fit=crop", icon: UtensilsCrossed, },
    ];
 
    const navigate = useNavigate();
@@ -24,6 +22,10 @@ export default function Interests()
    const handleContinue = () => {
         alert(`Selected interests: ${selected.join(", ") || "(none)"}`);
         navigate("/Activities");
+        <StateContext.Provider value={{selected ,setSelected}}>
+         <Activities />
+         <TravelStyle />
+        </StateContext.Provider>
    };
 
   const toggle = (id) => {
