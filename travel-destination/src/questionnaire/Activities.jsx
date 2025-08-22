@@ -33,8 +33,6 @@ export default function Activities()
   const toggle = (id) => {
 
       setSelectedActivities((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev,id] );
-
-//       console.log(selectedActivities)
   };
 
 return (
