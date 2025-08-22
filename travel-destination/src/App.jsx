@@ -19,7 +19,8 @@ function App() {
         <Route path="/InterestedDestination" element={<InterestedDestination />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Review" element={<Review />} />
-        <Route path="/users/:userId" element={<DestinationCard />} />
+       <Route path="/users/:id" element={<DestinationCard />} />
+
       </Routes>
     </StateProvider>
   );
