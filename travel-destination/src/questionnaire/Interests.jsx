@@ -9,9 +9,9 @@ export default function Interests()
 {
 
    const options = [
-        { id: "adventure", title: "Adventure", image:  "https://i.pinimg.com/1200x/d4/f3/d6/d4f3d6a6573761b8553414fe4d6f38a8.jpg",subtitle: "Hiking, rafting, thrill rides",icon: Mountain },
-        { id: "relaxation", title: "Relaxation", image: "https://i.pinimg.com/736x/bb/91/fd/bb91fdd139fdb20e73a70f8f7d2002d1.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
-        { id: "culture", title: "Culture", image: "https://i.pinimg.com/736x/fd/aa/75/fdaa75f0854b00753f0bd8a722676836.jpg",subtitle: "Museums, festivals",icon: Landmark, },
+        { id: "Adventure", title: "Adventure", image:  "https://i.pinimg.com/1200x/d4/f3/d6/d4f3d6a6573761b8553414fe4d6f38a8.jpg",subtitle: "Hiking, rafting, thrill rides",icon: Mountain },
+        { id: "Relaxation", title: "Relaxation", image: "https://i.pinimg.com/736x/bb/91/fd/bb91fdd139fdb20e73a70f8f7d2002d1.jpg" ,subtitle: "Beaches, spa, slow mornings",icon: Umbrella},
+        { id: "Culture", title: "Culture", image: "https://i.pinimg.com/736x/fd/aa/75/fdaa75f0854b00753f0bd8a722676836.jpg",subtitle: "Museums, festivals",icon: Landmark, },
    ];
 
    const navigate = useNavigate();
@@ -28,7 +28,7 @@ export default function Interests()
   const toggle = (id) => {
 
       setSelectedInterests((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-      console.log(selectedInterests);
+//       console.log(selectedInterests);
   };
 
 return (

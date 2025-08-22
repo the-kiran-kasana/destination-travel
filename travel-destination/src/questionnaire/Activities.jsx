@@ -16,9 +16,9 @@ export default function Activities()
 
 
    const options = [
-        { id: "sightseeing",  title: "Sightseeing", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
-        { id: "dining", title: "Dining", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: " Discover food taste experiences",icon: HandPlatter },
-        { id: "outdoor", title: "Outdoor", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
+        { id: "Sightseeing",  title: "Sightseeing", image:  "https://i.pinimg.com/736x/75/d8/39/75d8398a1233c844354c2911a3b6bf79.jpg",subtitle: "Explore famous landmarks",icon: Binoculars , },
+        { id: "Dining", title: "Dining", image:  "https://i.pinimg.com/1200x/0b/68/f2/0b68f23e83104e3057b8d79bc6ba7d7c.jpg",subtitle: " Discover food taste experiences",icon: HandPlatter },
+        { id: "Outdoor", title: "Outdoor", image: "https://i.pinimg.com/736x/03/e8/4c/03e84cd919058020dc3f12bfcea198c9.jpg" ,subtitle: "Enjoy nature with camping",icon: TentTree},
    ];
 
 
@@ -32,9 +32,9 @@ export default function Activities()
 
   const toggle = (id) => {
 
-      setSelectedActivities((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
+      setSelectedActivities((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev,id] );
 
-      console.log(selectedActivities)
+//       console.log(selectedActivities)
   };
 
 return (

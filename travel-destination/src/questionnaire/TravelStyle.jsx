@@ -8,9 +8,9 @@ export default function TravelStyle()
 {
 
    const options = [
-           { id: "solo",  title: "Solo", image:  "https://i.pinimg.com/1200x/37/05/73/3705737db12bde76985204ec6fa83ee1.jpg",subtitle: "Explore famous Solo",icon: Tent , },
-           { id: "family", title: "Family", image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
-           { id: "luxury", title: "Luxury", image: "https://i.pinimg.com/1200x/ec/a7/c4/eca7c4931e71dd9edd89876b36e10397.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
+           { id: "Solo",  title: "Solo", image:  "https://i.pinimg.com/1200x/37/05/73/3705737db12bde76985204ec6fa83ee1.jpg",subtitle: "Explore famous Solo",icon: Tent , },
+           { id: "Family", title: "Family", image:  "https://i.pinimg.com/1200x/b2/f3/45/b2f3459b5be00a47f3a52e9c01a212a6.jpg",subtitle: " Discover family destination",icon: HousePlus },
+           { id: "Luxury", title: "Luxury", image: "https://i.pinimg.com/1200x/ec/a7/c4/eca7c4931e71dd9edd89876b36e10397.jpg" ,subtitle: "Enjoy luxury style landmarks",icon: HandPlatter},
    ];
 
    const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function TravelStyle()
   const toggle = (id) => {
 
       setSelectedTravelStyles((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-      console.log(selectedTravelStyles)
+//       console.log(selectedTravelStyles)
   };
 
 return (
