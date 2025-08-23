@@ -4,6 +4,7 @@ import Activities from "./questionnaire/Activities"
 import TravelStyle from "./questionnaire/TravelStyle"
 import DestinationCard from "./questionnaire/DestinationCard"
 import ItineraryPlanner from "./components/ItineraryPlanner"
+import TravelArea from "./components/TravelArea"
 import DestinationComparison from "./components/DestinationComparison"
 import Login from "./authentication/Login"
 import Signup from "./authentication/Signup"
@@ -19,18 +20,21 @@ function App() {
       <Routes>
         <Route path="/" element={<Interests />} />
         <Route path="/Activities" element={<Activities />} />
+        <Route path="/Interests" element={<Interests />} />
         <Route path="/TravelStyle" element={<TravelStyle />} />
         <Route path="/InterestedDestination" element={<InterestedDestination />} />
         <Route path="/DestinationComparison" element={<DestinationComparison />} />
-        <Route path="/Home" element={<Home />} />
         <Route path="/Review" element={<Review />} />
+        <Route path="/Home" element={<Home />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />
+        <Route path="/TravelArea" element={<TravelArea />} />
         <Route path="/ItineraryPlanner" element={<ItineraryPlanner />} />
         <Route path="/users/:id" element={<DestinationCard />} />
-
       </Routes>
-    </StateProvider>
+
+
+</StateProvider>
   );
 }
 
