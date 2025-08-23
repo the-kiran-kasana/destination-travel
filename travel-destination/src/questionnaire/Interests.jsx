@@ -29,41 +29,45 @@ export default function Interests()
   const toggle = (id) => {
 
       setSelectedInterests((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id] );
-//       console.log(selectedInterests);
+      console.log(selectedInterests);
   };
 
 return (
   <>
     <Header />
-    <div className="flex  flex-col items-center  justify-center p-5 border rounded-2xl shadow-md mt-20 ">
+<div className="border rounded-lg w-[500px] p-4 mt-30 shadow-md mx-auto">
 
-      <h3 className="text-xl font-bold tracking-tight text-black-600 text-center"> Destination2Travel </h3>
-      <p className="mt-10 text-sm text-black-600 text-center gap-6">  We'll personalize Destination2Travel based on your goals </p>
-      <h2 className="mt-2 text-4xl font-bold tracking-tight text-black-600 text-center"> Choose your travel interests </h2>
+  <h3 className="text-xl font-bold tracking-tight text-gray-800 text-center"> Destination2Travel </h3>
+  <p className="mt-4 text-sm text-gray-600 text-center"> We'll personalize Destination2Travel based on your goals </p>
+  <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-800 text-center"> Choose your travel interests</h2>
 
+  <div className="grid grid-cols-2 gap-4 mt-8">
+    {options.map((opt) => (
+      <div key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${  selectedInterests.includes(opt.id) ? "border-indigo-500" : "border-gray-200"  }`}  >
 
-      <div className="grid grid-cols-1 sm:grid-cols-2  gap-6 mt-20">
-        {options.map((opt) => (
-          <button key={opt.id} className={`rounded-xl border p-3 shadow hover:shadow-md transition ${selectedInterests.includes(opt.id) ? "border-indigo-500" : "border-gray-200"}`}>
-             <img src={opt.image} alt={opt.title} className="h-42 w-full rounded-lg object-cover"/>
+        <div className="h-[200px] w-[200px] mx-auto">
+          <img  src={opt.image} alt={opt.title}  className="h-full w-full rounded-lg object-cover" />
+        </div>
 
+        <div className="mt-2 ">
+          <opt.icon className="h-5 w-5 mx-auto mb-1" />
+          <p className="text-sm font-semibold">{opt.title}</p>
+        </div>
 
-            <div className="relative inset-x-0 bottom-0 p-4 text-left">
-                  <div className="flex items-center gap-2 text-black-600e drop-shadow">
-                    <opt.icon className="h-5 w-5" />
-                    <p className="text-lg font-semibold">{opt.title}</p>
-                  </div>
-                  <p className="mt-1 line-clamp-2 text-sm text-black-600/90">{opt.subtitle}</p>
-                 <input ref={inputRef} type="checkbox"onChange={() => toggle(opt.id)} className="appearance-none absolute bottom-4 right-4 h-5 w-5 border border-gray-300 rounded-full checked:bg-gray-400 cursor-pointer"/>
-            </div>
-
-
-          </button>
-        ))}
+        <div className="flex  gap-5 mt-2">
+          <p className="mt-1 line-clamp-2 text-xs text-gray-600">{opt.subtitle}</p>
+          <input type="checkbox" checked={selectedInterests.includes(opt.id)} onChange={() => toggle(opt.id)} className="h-4 w-4  checked:bg-gray-400 border  rounded cursor-pointer" />
+        </div>
       </div>
+    ))}
+  </div>
 
-      <div className="mt-6 flex justify-center"> <button onClick={handleContinue} className="rounded-xl bg-slate-700 px-5 py-5 text-sm font-semibold text-white shadow-sm transition hover:bg-gray-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus-visible:ring-offset-5" > Next </button></div>
-    </div>
+  <div className="mt-6 flex justify-center">
+    <button onClick={handleContinue} className="rounded-xl bg-slate-700  px-6 py-2 text-sm font-semibold text-white shadow-sm transition hover:bg-gray-500" > Next </button>
+  </div>
+</div>
+
+
   </>
 );
 

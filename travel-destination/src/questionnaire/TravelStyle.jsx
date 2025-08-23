@@ -3,6 +3,7 @@ import { Binoculars, HandPlatter, TentTree ,Tent,HousePlus} from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import {useSharedState} from "./StateContext"
 import { useLocation } from "react-router-dom";
+import Header from "../components/Header";
 
 export default function TravelStyle()
 {
@@ -35,7 +36,8 @@ export default function TravelStyle()
 
 return (
   <>
-    <div className="flex flex-col items-center justify-center p-6 border rounded-2xl shadow-md w-full">
+    <Header />
+    <div className="border rounded-lg w-[500px] p-4 mt-30 shadow-md mx-auto">
 
       <h3 className="text-xl font-bold tracking-tight text-white-600 text-center"> Destination2Travel </h3>
       <p className="mt-10 text-sm text-white-600 text-center gap-6">  We'll personalize Destination2Travel based on your goals </p>
@@ -49,12 +51,12 @@ return (
 
 
             <div className="relative inset-x-0 bottom-0 p-4 text-left">
-                  <div className="flex items-center gap-2 text-white drop-shadow">
+                  <div className="flex items-center gap-2 text-black-400 drop-shadow">
                     <opt.icon className="h-5 w-5" />
                     <p className="text-lg font-semibold">{opt.title}</p>
                   </div>
-                  <p className="mt-1 line-clamp-2 text-sm text-white/90">{opt.subtitle}</p>
-                 <input ref={inputRef} type="checkbox"onChange={() => toggle(opt.id)} className="appearance-none absolute bottom-4 right-4 h-5 w-5 border border-gray-300 rounded-full checked:bg-gray-400 cursor-pointer"/>
+                  <p className="mt-1 line-clamp-2 text-sm text-black-400/90">{opt.subtitle}</p>
+                 <input ref={inputRef} type="checkbox"onChange={() => toggle(opt.id)} className="appearance-none absolute bottom-4 right-4 h-5 w-5 border border-gray-500 rounded-full checked:bg-gray-400 cursor-pointer"/>
             </div>
 
 
