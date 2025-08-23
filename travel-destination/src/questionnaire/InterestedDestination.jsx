@@ -41,11 +41,25 @@
       <div>
         <h2>Recommended Destinations</h2>
         <button
-          className="flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600"
-          onClick={() => navigate("/Review")}
-        >
-          <Pencil size={18} /> Reviews
+           className="flex items-center gap-2 bg-blue-500 text-white mb-10 px-4 py-2 rounded-lg hover:bg-blue-600"
+           onClick={() => navigate("/Review")} > <Pencil size={18} /> Reviews
         </button>
+
+        <button
+           className="flex items-center gap-2 bg-blue-500 text-white mb-10 px-4 py-2 rounded-lg hover:bg-blue-600"
+           onClick={() => navigate("/Login")} >Login or Signup
+        </button>
+
+       <button
+           className="flex items-center gap-2 bg-blue-500 text-white mb-10 px-4 py-2 rounded-lg hover:bg-blue-600"
+           onClick={() => navigate("/ItineraryPlanner")} >plan your trip
+       </button>
+
+       <button
+                  className="flex items-center gap-2 bg-blue-500 text-white mb-10 px-4 py-2 rounded-lg hover:bg-blue-600"
+                  onClick={() => navigate("/DestinationComparison")} >Destination Compariso
+       </button>
+
 
         {desireDestination.length > 0 ? (
           desireDestination.map((place, i) => (

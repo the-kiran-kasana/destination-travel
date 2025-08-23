@@ -3,6 +3,10 @@ import Interests from "./questionnaire/Interests"
 import Activities from "./questionnaire/Activities"
 import TravelStyle from "./questionnaire/TravelStyle"
 import DestinationCard from "./questionnaire/DestinationCard"
+import ItineraryPlanner from "./components/ItineraryPlanner"
+import DestinationComparison from "./components/DestinationComparison"
+import Login from "./authentication/Login"
+import Signup from "./authentication/Signup"
 import Review from "./questionnaire/Review"
 import Home from "./questionnaire/Home"
 import InterestedDestination from "./questionnaire/InterestedDestination"
@@ -17,9 +21,13 @@ function App() {
         <Route path="/Activities" element={<Activities />} />
         <Route path="/TravelStyle" element={<TravelStyle />} />
         <Route path="/InterestedDestination" element={<InterestedDestination />} />
+        <Route path="/DestinationComparison" element={<DestinationComparison />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Review" element={<Review />} />
-       <Route path="/users/:id" element={<DestinationCard />} />
+        <Route path="/Signup" element={<Signup />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/ItineraryPlanner" element={<ItineraryPlanner />} />
+        <Route path="/users/:id" element={<DestinationCard />} />
 
       </Routes>
     </StateProvider>
