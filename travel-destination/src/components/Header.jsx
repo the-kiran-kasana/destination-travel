@@ -29,14 +29,6 @@ export default function Header()
             }
     }
 
-    const handleCompaire = () => {
-            if(auth.currentUser){
-             navigate("/Trending")
-            }
-            else{
-              navigate("/Login");
-            }
-        }
 
     return (
         <>
@@ -51,7 +43,6 @@ export default function Header()
                      <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={() => navigate("/Home")}> Home </button>
                      <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={handleClick}> Reviews </button>
                      <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={handleTrending} > Trending Destinations </button>
-                     <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={handleCompaire} >Destination Compariso </button>
                      <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={() => navigate("/Login")} > Login / Signup</button>
                   </div>
                 </nav>

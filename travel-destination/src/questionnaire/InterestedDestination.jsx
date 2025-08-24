@@ -1,11 +1,12 @@
     import React , {useState , useEffect}from "react";
     import { useSharedState } from "./StateContext";
-    import { Mountain ,Pencil} from "lucide-react";
+    import { Mountain ,Pencil,MapPin} from "lucide-react";
     import { useNavigate } from "react-router-dom";
     import { useLocation } from "react-router-dom";
     import { Link } from "react-router-dom";
     import { InterestsData } from "../database/InterestsData";
     import Header from "../components/Header";
+    import { auth } from "../auth/firebaseConfig";
 
     export default function InterestedDestination()
     {
@@ -14,8 +15,9 @@
       const { selectedActivities, setSelectedActivities } = useSharedState();
       const { selectedTravelStyles, setSelectedTravelStyles } = useSharedState();
       const [desireDestination , setDesireDestination] = useState([]);
+      const [compareDestination , setCompareDestination] = useState([]);
       const navigate = useNavigate();
-       const Location = useLocation();
+      const Location = useLocation();
 
 
 
@@ -25,15 +27,26 @@
             ...selectedActivities,
             ...selectedTravelStyles
           ];
-
             setDesireDestination(InterestsData.filter(d =>
             selectedAll.some(sel => d.title.includes(sel))
           ));
-
-          console.log("after the filtering :" + desireDestination)
-
-
         }, [selectedInterests, selectedActivities, selectedTravelStyles]);
+
+
+       const toggle = (id) => {
+         setCompareDestination((prev) => prev.includes(id) ? prev.filter((x) => x !== id) : [...prev,id] );
+       }
+
+
+       const handleCompaire = () => {
+         if(auth.currentUser){
+               navigate("/DestinationComparison" , { state: { compareDestination } })
+         }
+         else{
+              navigate("/Login");
+         }
+     }
+
 
 
 
@@ -45,6 +58,8 @@
           <section className="py-16 px-8 text-center mt-20">
                 <h2 className="text-5xl text-slate-800 font-bold mb-2">Explore India With Your Favourite Destination</h2>
                 <p className="max-w-3xl mx-auto text-gray-600 "> Share itineraries, post reviews, invite friends, and discover trending destinations from a vibrant traveler community. </p>
+                <button className={`mt-5 text-white font-semibold justify-center items-center rounded-full px-6 py-3 shadow-lg hover:bg-gray-200 bg-gradient-to-r from-blue-800 via-rose to-slate-600 transition ${  compareDestination.length === 0 ? "cursor-not-allowed opacity-50" : ""}`} disabled={compareDestination.length === 0}   onClick={handleCompaire} >Destination Comparison</button>
+
           </section>
 
       <div className="grid grid-cols-3 gap-6 mb-20 mt-8">
@@ -56,7 +71,9 @@
               <p className="text-sm text-gray-600">{place.subtitle}</p>
               <p className="text-sm text-gray-500 mt-1">{place.description}</p>
               <h2 className="text-sm font-medium text-gray-700 mt-2"> {place.city}, {place.state}</h2>
-              <Link to={`/users/${place.id}`} className="text-blue-600 font-semibold hover:underline block mt-2" >View Destination</Link>
+              <input type="checkbox" onChange={() => toggle(place.id)} className={`appearance-none absolute bottom-4 right-4 h-5 w-5 border border-gray-500 rounded-full checked:bg-gray-400 cursor-pointer`}/>
+
+              <Link to={`/users/${place.id}`} className="flex text-blue-600 justify-center items-center font-semibold hover:underline block mt-2" ><MapPin/>View Destination</Link>
             </div>
           ))
         ) : (
