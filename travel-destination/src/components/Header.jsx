@@ -40,7 +40,7 @@ export default function Header()
 
 
                   <div className="flex items-center gap-4">
-                     <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={() => navigate("/Home")}> Home </button>
+                     <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={() => navigate("/")}> Home </button>
                      <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={handleClick}> Reviews </button>
                      <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={destination} > Destination </button>
                      <button className="px-4 py-2 font-semibold text-white rounded-lg hover:bg-gray-700"  onClick={() => navigate("/Login")} > Login / Signup</button>
