@@ -1,6 +1,6 @@
     import React , {useState , useEffect}from "react";
     import { useSharedState } from "./StateContext";
-    import { Mountain ,Pencil,MapPin} from "lucide-react";
+    import { Mountain ,Pencil,MapPin,UserRound} from "lucide-react";
     import { useNavigate } from "react-router-dom";
     import { useLocation } from "react-router-dom";
     import { Link } from "react-router-dom";
@@ -47,6 +47,10 @@
          }
      }
 
+     const UserProfile = () =>{
+           navigate("/UserProfile");
+     }
+
 
 
 
@@ -55,11 +59,17 @@
 
       <div>
          <Header />
-          <section className="py-16 px-8 text-center mt-20">
+
+
+          <section className="py-16 px-8 text-center mt-5">
+                  <button className={`text-white font-semibold justify-center items-center rounded-full px-6 py-3 shadow-lg hover:bg-gray-900 bg-gradient-to-r from-blue-800 via-rose to-slate-600 transition flex`} onClick={UserProfile} ><UserRound className="flex" />Profiles</button>
+          </section>
+
+
+          <section className="py-16 px-8 text-center mt-5">
                 <h2 className="text-5xl text-slate-800 font-bold mb-2">Explore India With Your Favourite Destination</h2>
                 <p className="max-w-3xl mx-auto text-gray-600 "> Share itineraries, post reviews, invite friends, and discover trending destinations from a vibrant traveler community. </p>
                 <button className={`mt-5 text-white font-semibold justify-center items-center rounded-full px-6 py-3 shadow-lg hover:bg-gray-200 bg-gradient-to-r from-blue-800 via-rose to-slate-600 transition ${  compareDestination.length === 0 ? "cursor-not-allowed opacity-50" : ""}`} disabled={compareDestination.length === 0}   onClick={handleCompaire} >Destination Comparison</button>
-
           </section>
 
       <div className="grid grid-cols-3 gap-6 mb-20 mt-8">
