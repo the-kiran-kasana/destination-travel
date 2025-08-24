@@ -6,6 +6,8 @@ import { useSharedState } from "./StateContext";
 import Header from "../components/Header";
 import { useParams } from "react-router-dom";
 import { InterestsData } from "../database/InterestsData";
+import { dbstore } from "../auth/firebaseConfig"
+import { collection, addDoc } from "firebase/firestore";
 
 
 
@@ -20,16 +22,32 @@ export default function Review() {
 
 
 
- function handleSubmit(e)
- {
-  e.preventDefault();
-{/*   <InterestsData {rating ,reviewTitle ,review ,id}/> */}
-  console.log(rating)
-  console.log(reviewTitle)
-  console.log(review)
+ async function handleSubmit(e) {
+   e.preventDefault();
 
+   try {
 
+     const reviewsRef = collection(dbstore, "reviews");
+
+     await addDoc(reviewsRef, {
+       id: id,
+       city: city,
+       rating: rating,
+       reviewTitle: reviewTitle,
+       review: review,
+       createdAt: new Date()
+     });
+
+     alert("✅ Review submitted successfully!");
+     setRating(null);
+     setReview("");
+     setReviewTitle("");
+   } catch (error) {
+     console.error("❌ Error adding review:", error);
+     alert("Something went wrong!");
+   }
  }
+
 
 
 

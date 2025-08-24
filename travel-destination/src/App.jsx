@@ -5,6 +5,7 @@ import TravelStyle from "./questionnaire/TravelStyle"
 import DestinationCard from "./questionnaire/DestinationCard"
 import ItineraryPlanner from "./components/ItineraryPlanner"
 import TravelArea from "./components/TravelArea"
+import UploadData from "./database/UploadData"
 import UserProfile from "./components/UserProfile"
 import DestinationComparison from "./components/DestinationComparison"
 import Login from "./authentication/Login"
@@ -27,6 +28,7 @@ function App() {
         <Route path="/InterestedDestination" element={<InterestedDestination />} />
         <Route path="/DestinationComparison" element={<DestinationComparison />} />
         <Route path="/Review" element={<Review />} />
+        <Route path="/UploadData" element={<UploadData />} />
         <Route path="/Home" element={<Home />} />
         <Route path="/Signup" element={<Signup />} />
         <Route path="/Login" element={<Login />} />

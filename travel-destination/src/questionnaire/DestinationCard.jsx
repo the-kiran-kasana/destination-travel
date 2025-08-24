@@ -5,10 +5,14 @@ import Header from "../components/Header";
 import DestinationMap from "../components/DestinationMap"
 import { auth } from "../auth/firebaseConfig";
 import { useNavigate } from "react-router-dom";
+import { collection, getDocs } from "firebase/firestore";
+import { dbstore } from "../auth/firebaseConfig"
+import {useState,useEffect} from "react"
 
 export default function DestinationCard() {
   const { id } = useParams(); // 👈 get id from URL
   const navigate = useNavigate();
+  const [reviewData, setReviewData] = useState([]);
 
   const place = InterestsData.find((p) => p.id === id);
   if (!place) return <p>Destination not found</p>;
@@ -21,6 +25,26 @@ export default function DestinationCard() {
 //             navigate("/Login");
 //           }
 //       }
+
+
+    const fetchData = async () => {
+        const querySnapshot = await getDocs(collection(dbstore, "reviews"));
+        querySnapshot.forEach((doc) => {
+          setReviewData((prev) => [
+            ...prev,
+            {
+              review: doc.data().review,
+              rating: doc.data().rating,
+              reviewTitle: doc.data().reviewTitle,
+              createdAt: doc.data().createdAt?.toDate(), // if you used serverTimestamp()
+            },
+          ]);
+        });
+      };
+
+   useEffect(() => { fetchData() },[])
+
+
 
   return (
 
@@ -61,6 +85,17 @@ export default function DestinationCard() {
          <Pencil size={20} /> Write a Review
        </button>
      </div>
+
+    {reviewData.map((item, index) => (
+      <div key={index} className="p-4 border rounded-lg mb-3">
+        <h3 className="font-bold">{item.reviewTitle}</h3>
+        <p>{item.review}</p>
+        <small>{item.createdAt?.toString()}</small>
+         <p>Rating : {item.rating}</p>
+      </div>
+    ))}
+
+
 
 
 

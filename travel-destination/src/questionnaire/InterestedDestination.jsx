@@ -61,7 +61,7 @@
          <Header />
 
 
-          <section className="py-16 px-8 text-center mt-5">
+          <section className="py-16 px-8 text-center mt-5 mr-10">
                   <button className={`text-white font-semibold justify-center items-center rounded-full px-6 py-3 shadow-lg hover:bg-gray-900 bg-gradient-to-r from-blue-800 via-rose to-slate-600 transition flex`} onClick={UserProfile} ><UserRound className="flex" />Profiles</button>
           </section>
 
@@ -93,7 +93,7 @@
                No Recommendations Found
              </h2>
              <p className="text-gray-600 text-base">
-               Try adjusting your filters or preferences to see more travel options.
+               Try adjusting your filters or preferences to see more travel options. go on <Link className="text-blue-700" to="/Interests">Destination</Link> and find your favorite travel destination
              </p>
            </div>
          </div>

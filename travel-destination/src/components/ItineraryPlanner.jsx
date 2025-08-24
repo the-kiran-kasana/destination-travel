@@ -14,7 +14,7 @@ function ItineraryPlanner() {
   };
 
   return (
-    <div className="p-6 max-w-3xl mx-auto">
+    <div className="p-6 max-w-3xl mx-auto shadow-lg">
       <h2 className="text-2xl font-bold mb-4">✈️ Personalized Itinerary</h2>
 
       <div className="flex gap-2 mb-4">
@@ -39,8 +39,8 @@ function ItineraryPlanner() {
       </div>
 
       <div className="mt-4 flex gap-2">
-        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">  Save Itinerary </button>
-        <button className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"> Share with Friends </button>
+        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">  Save </button>
+        <button className="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600"> Share </button>
       </div>
     </div>
   );

@@ -19,7 +19,7 @@ export default function Login() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       alert("Login successful!");
-      navigate("/Interests");
+      navigate("/InterestedDestination");
     } catch (error) {
       setError("email or password is invalid");
     }

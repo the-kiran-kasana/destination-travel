@@ -3,6 +3,7 @@ import { UserRound } from "lucide-react";
 import { auth, db } from "../auth/firebaseConfig";
 import { ref, set, get, push, update } from "firebase/database";
 import Header from "../components/Header";
+import ItineraryPlanner from "../components/ItineraryPlanner";
 
 export default function UserProfile() {
 
@@ -72,7 +73,9 @@ export default function UserProfile() {
 
   return (
 
+
   <>
+
     <div className="p-8 max-w-6xl ml-10 mx-auto space-y-6 flex gap-20">
     <Header />
 
@@ -141,6 +144,9 @@ export default function UserProfile() {
 
 
     </div>
+
+      <ItineraryPlanner />
+
     <footer className="bg-sky-950 text-white py-6 text-center w-full fixed bottom-0 left-0 z-50"> <p>© 2025 TravelMate. All rights reserved.</p> </footer>
     </>
   );
