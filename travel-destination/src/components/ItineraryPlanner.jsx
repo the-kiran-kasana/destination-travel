@@ -22,14 +22,14 @@ function ItineraryPlanner() {
         <input type="text" placeholder="Activity (e.g. Visit Taj Mahal)" value={activity} onChange={(e) => setActivity(e.target.value)} className="border p-2 rounded flex-1" />
         <button onClick={addActivity} className="bg-blue-500 text-white px-4 rounded hover:bg-blue-600">  Add </button> </div>
 
-      <div className="bg-black-600 p-4 rounded-lg">
+      <div className="bg-white p-4 rounded-lg">
         <h3 className="font-semibold mb-2">Your Plan</h3>
         {itinerary.length === 0 ? (
-          <p className="text-black-500">No activities yet. Add some!</p>
+          <p className="text-gray-500">No activities yet. Add some!</p>
         ) : (
           <ul className="space-y-2">
             {itinerary.map((item, index) => (
-              <li  key={index} className="bg-black p-2 rounded shadow flex justify-between">
+              <li  key={index} className="bg-gray-200 p-2 rounded shadow flex justify-between">
                 <span> <strong> {item.day} </strong>: {item.activity} </span>
                 <button  onClick={() =>  setItinerary(itinerary.filter((_, i) => i !== index))} className="text-red-500 hover:underline"> Remove </button>
               </li>

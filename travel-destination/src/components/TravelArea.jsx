@@ -1,7 +1,10 @@
-import React from "react";
+import React ,{useState}from "react";
 import Header from "../components/Header";
+import {Heart } from "lucide-react";
 
 const destinations = [
+
+
   {
     id: 1,
     name: "Taj Mahal",
@@ -192,21 +195,43 @@ const destinations = [
 ];
 
 export default function StateTravelDestinations() {
+
+  const [liked , setLiked] = useState(false);
+
+  const favoriteDestination =(e) => {
+       e.preventDefault();
+        setLiked(!liked);
+        console.log("hellofavoriteDestination ")
+  }
+
   return (
-    <div className="p-5 bg-gray-50 min-h-screen">
-    <Header />
-      <h1 className="text-5xl font-bold text-center mt-30 mb-10 text-slate-700">  Famous Travel Destinations of India</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {destinations.map(place => (
-          <div key={place.id} className="relative group">
-            <img src={place.image} alt={place.name} className="rounded-2xl shadow-lg w-full h-64 object-cover group-hover:opacity-80 transition" />
-            <div className="absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-2 rounded-xl opacity-0 group-hover:opacity-100 transition">
-              <h3 className="text-lg font-bold">{place.name}</h3>
-              <p className="text-sm">{place.state}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
+
+ <div className="p-8 bg-gray-50 min-h-screen">
+
+  <Header />
+   <h1 className="text-5xl font-bold text-center mb-15 mt-20 text-slate-700">
+     Famous Travel Destinations of India
+   </h1>
+   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+     {destinations.map((place) => (
+       <div key={place.id} className="relative group rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300" >
+         <img src={place.image} alt={place.name} className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-500" />
+
+         <button onClick={favoriteDestination} className="absolute top-3 right-3 z-20 bg-white/70 rounded-full p-2 shadow-md hover:bg-white transition" >
+             <Heart size={24} className={`${liked ? "text-red-600 fill-red-600" : "text-gray-500"}`}/>
+         </button>
+
+         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent
+                         group-hover:from-black/70 group-hover:via-black/40 group-hover:to-transparent
+                         transition-all duration-500 flex flex-col justify-end p-4">
+
+           <h2 className="text-white text-xl font-semibold drop-shadow-md"> {place.name} </h2>
+           <p className="text-white drop-shadow-md">{place.state}</p>
+         </div>
+       </div>
+     ))}
+   </div>
+ </div>
+
   );
 }
