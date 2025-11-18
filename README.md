@@ -1,0 +1,1 @@
+A user-friendly platform that provides personalized destination recommendations based on user preferences, travel styles, and past experiences. This project aims to simplify travel planning by helping users discover destinations that align with their interests, budget, and desired activities.
